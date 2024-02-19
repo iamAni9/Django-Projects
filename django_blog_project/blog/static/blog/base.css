@@ -1,0 +1,25 @@
+body{
+    background-color: #eb4d55;
+}
+
+.navbar-custom{
+    /* border-bottom: 0.4px solid white; */
+    margin-top: 10px;
+    user-select: none;
+}
+
+.navbar-custom .navbar-brand{
+    color: white;
+    font-size: 25px;
+    font-weight: 700 !important;
+}
+
+.navbar-nav li a{
+    color: white;
+}
+
+.navbar-nav li a:hover{
+    color: white;
+    transform: scale(1.2);
+}
+

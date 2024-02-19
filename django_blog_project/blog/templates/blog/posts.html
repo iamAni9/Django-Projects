@@ -1,11 +1,22 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
-    <h1>Posts</h1>
     {% for post in posts %}
-        <h2>Title : {{post.title}}</h2>
-        <p>{{post.description}}</p>
-        <h4>Author : {{post.author}}</h4>
-        <h4>Date : {{post.date}}</h4>
+        <div class="container mt-3">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-subtitle text-muted fs-6 fw-bold position-relative">{{post.author}}
+                            <span class="position-absolute top-0 end-0 fw-semibold">{{post.posted_date|date:"F d, Y"}}</span>
+                        </p>
+                        <hr>
+                        <h2 class="card-title">{{post.title}}</h2>
+                        <p class="card-text">
+                            {{post.description}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     {% endfor %} 
 {% endblock %}

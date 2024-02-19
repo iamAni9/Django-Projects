@@ -1,9 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "blog/base.css" %}">
     {% if title %}
         <title>Django Blog - {{title}}</title>
     {% else %}
@@ -11,16 +13,16 @@
     {% endif %}
 </head>
 <body>
-    <nav class="navbar bg-info navbar-expand-lg mb-4" data-bs-theme="dark">
+    <nav class="navbar navbar-custom navbar-expand-lg mb-4">
+      <div class="container">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">BLoG</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+          <a class="navbar-brand">BLoG</a>
+        </div>
+        <div class="navbar-nav">
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url "blog-home" %}">Home</a>
+                <a class="nav-link" aria-current="page" href="{% url "blog-home" %}">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url "blog-posts" %}">Posts</a>
@@ -28,15 +30,17 @@
               <li class="nav-item">
                 <a class="nav-link" href="{% url "blog-about" %}">About</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url "blog-about" %}">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url "blog-about" %}">Register</a>
+              </li>
             </ul>
           </div>
         </div>
-        <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="#">Login</a>
-            <a class="nav-item nav-link active" href="#">Register</a>
-        </div>
       </nav>
-      
+    </div>
       <main role="main" class="container">
         <div class="row">
           <div class="col-md-8">

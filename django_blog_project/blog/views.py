@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Post
 # from django.http import HttpResponse
 
 
@@ -8,21 +9,21 @@ def home(request):
     return render(request, 'blog/home.html')
 
 def posts(request):
-    posts = [
-        {
-            "title" : "First Post",
-            "description" : "This is just a random post.",
-            "author" : "IamANi",
-            "date" : "17Feb2024"
-        },
-        {
-            "title" : "Second Post",
-            "description" : "I don't know what I am writing.",
-            "author" : "IamANi",
-            "date" : "17Feb2024"
-        }
-    ]
-    context = {"posts" : posts, "title" : "Posts"}
+    # posts = [
+    #     {
+    #         "title" : "First Post",
+    #         "description" : "This is just a random post.",
+    #         "author" : "IamANi",
+    #         "date" : "17Feb2024"
+    #     },
+    #     {
+    #         "title" : "Second Post",
+    #         "description" : "I don't know what I am writing.",
+    #         "author" : "IamANi",
+    #         "date" : "17Feb2024"
+    #     }
+    # ]
+    context = {"posts" : Post.objects.all(), "title" : "Posts"}
     return render(request, 'blog/posts.html', context)
 
 def about(request):
